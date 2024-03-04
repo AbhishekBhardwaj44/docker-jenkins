@@ -12,9 +12,9 @@ pipeline {
                 script {
                    def DockerImage="abhibhardwaj4907/docker-app"
                    def DockerTag="v1"
-                   def dockerCredentials="dockerhub-cred"'
+                   def dockerCredentialsId="dockerhub-cred"'
                    def dockerBuild=docker.build("${DockerImage}:${DockerTag}",".")
-                   docker.withRegistry("",dockerCredentials) {
+                   docker.withRegistry("",dockerCredentialsId) {
                       dockerBuild.push()
             }
             }
